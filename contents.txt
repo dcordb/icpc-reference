@@ -1,0 +1,87 @@
+# Any line followed by a '#' character is ignored
+# Section headings must be in square brackets
+# Subsections within a section should follow the format:
+#   [filename within code directory][tab character \t][subsection title]
+
+[Álgebra]
+Algebra/NTT.cpp	Number Theoretic Transform
+Algebra/FFT.cpp	Fast Fourier Transform
+Algebra/Modulo_NTT.cpp	Get Modulo NTT
+Algebra/Generador_NTT.cpp	Get Generator for Modulo NTT
+Algebra/Gauss.cpp	Gauss's Method
+Algebra/Simpsons_Rule.cpp	Simpson's Rule
+Algebra/FFT_inv.cpp	Inverse of a Polynomial (with NTT)
+Algebra/FFT_like.cpp	FFT XOR AND OR
+
+[DP]
+DP/CHTrick.cpp	Convex Hull Trick
+DP/CHTrickwithSet.cpp	Convex Hull Trick with Set
+DP/DP3n.cpp	Iterating subsets of a subset
+DP/LIS.cpp	Longest Increasing Subsequence
+DP/DivAndConqOpt.cpp	Divide And Conquer Optimization
+DP/CHTrickDynamic.cpp	Dynamic Convex Hull Trick
+
+[Estructuras de Datos]
+DS/Persistent_SegTree.cpp	Persistent Segment Tree
+DS/MoAlgorithm.cpp	Mo's Algorithm
+DS/mo_tree.cpp	Mo's Algorithm On Trees
+DS/treap.cpp	Treap
+
+[Geometría]
+Geometry/ConvexHull.cpp	Convex Hull
+Geometry/ClosestPairOfPoints.cpp	Closest Pair Of Points
+Geometry/AntipodalPairOfPoints.cpp	Antipodal Pair Of Points
+Geometry/Geometry.cpp	Geometry (Mine)
+Geometry/GeometryStanford.cpp	Geometry (Stanford)
+Geometry/2D_basics.cpp	Geometry 2D Basics
+Geometry/3D_basics.cpp	Geometry 3D Basics
+
+[Grafos]
+Graphs/Centroid_Decomposition.cpp	Centroid Decomposition
+Graphs/LCA.cpp	Lowest Common Ancestor
+Graphs/SAT.cpp	2-SAT
+Graphs/Kuhn_Matching.cpp	Kuhn Matching
+Graphs/Hopcroft_Karp.cpp	Hopcroft Karp Matching
+Graphs/MVC.cpp	Minimun Vertex Cover
+Graphs/Dinic.cpp	Dinic
+Graphs/MCMF.cpp	Min Cost Max Flow
+Graphs/BC.cpp	Biconnected Components
+Graphs/ApBridges.cpp	Articulations Points and Bridges
+Graphs/HLD.cpp	Heavy Light Decomposition
+Graphs/EulerPathOrCycle.cpp	Euler Path Or Cycle
+Graphs/Prim_N2.cpp	Prim
+Graphs/hungarian.cpp	Hungarian (Vectors)
+Graphs/hungarian_arrays.cpp	Hungarian (Arrays)
+Graphs/MDST.cpp	Minimum Directed Spanning Tree
+Graphs/SmallToLarge.cpp	Small To Large On Trees
+
+[Strings]
+Strings/SA.cpp	Suffix Array
+Strings/SA_mult.cpp	Suffix Array (Multiple Strings)
+Strings/AhoCorasick.cpp	Aho Corasick
+Strings/PrefixFunction.cpp	Prefix Function
+Strings/Manacher.cpp	Manacher
+Strings/Suffix Automata.cpp	Suffix Automata
+Strings/z.cpp	Z Function
+
+[Teoría de Números]
+NumberTheory/Pollard_Rho.cpp	Pollard Rho
+NumberTheory/NumberTheoryStanford.cpp	Number Theory Stanford
+NumberTheory/PrimesNotes.cpp	Prime Notes
+NumberTheory/IterativeFastExponentiation.cpp	Fast Exponentiation (Iterative)
+NumberTheory/IterativeFastExponentiation.cpp	Fast Exponentiation (Iterative)
+NumberTheory/Baby_steps.cpp	Baby Step Giant Step
+NumberTheory/bt.cpp	Linear Recurrence Solver
+NumberTheory/burnside1.cpp	Burnside 1
+NumberTheory/burnside2.cpp	Burnside2
+NumberTheory/nt.cpp	Number Theory
+NumberTheory/stuff.cpp	More NT
+
+[Otros]
+Others/Java_Template.java	Java Template
+Others/Double_Cmp.cpp	Double Comparison
+Others/MatrixMultiplication.cpp	Matrix Multiplication
+Others/RedBlackTreeSTL.cpp	Augmented Red Black Tree (STL)
+Others/TernarySearch.cpp	Ternary Search
+Others/Permutation_Struct.cpp	Permutation Struct
+Others/StackSizeManipulation.cpp.cpp	Stack Size Manipulation (Hack)
