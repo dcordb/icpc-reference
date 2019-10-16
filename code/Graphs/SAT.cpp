@@ -2,8 +2,8 @@ namespace sat {
 	/*2sat variables are at even positions (0, 2, 4, 6, ...)
 	negations are at odd positions (1, 3, 5, 7, ...)*/
 	/*
-	para añadir variable x, poner 2 * x
-	para añadir neg(x) poner neg(2 * x)
+	para annadir variable x, poner 2 * x
+	para annadir neg(x) poner neg(2 * x)
 	*/
 
 	int n;

@@ -54,14 +54,15 @@ Graphs/hungarian.cpp	Hungarian (Vectors)
 Graphs/hungarian_arrays.cpp	Hungarian (Arrays)
 Graphs/MDST.cpp	Minimum Directed Spanning Tree
 Graphs/SmallToLarge.cpp	Small To Large On Trees
+Graphs/CompressedTree.cpp	Compressed Tree
 
 [Strings]
 Strings/SA.cpp	Suffix Array
 Strings/SA_mult.cpp	Suffix Array (Multiple Strings)
 Strings/AhoCorasick.cpp	Aho Corasick
 Strings/PrefixFunction.cpp	Prefix Function
-Strings/Manacher.cpp	Manacher
-Strings/Suffix Automata.cpp	Suffix Automata
+Strings/manacher.cpp	Manacher
+Strings/suffix_automata.cpp	Suffix Automata
 Strings/z.cpp	Z Function
 
 [Teoría de Números]
@@ -76,6 +77,7 @@ NumberTheory/burnside1.cpp	Burnside 1
 NumberTheory/burnside2.cpp	Burnside2
 NumberTheory/nt.cpp	Number Theory
 NumberTheory/stuff.cpp	More NT
+NumberTheory/FastFibo.cpp	FastFibonacci
 
 [Otros]
 Others/Java_Template.java	Java Template
@@ -84,4 +86,4 @@ Others/MatrixMultiplication.cpp	Matrix Multiplication
 Others/RedBlackTreeSTL.cpp	Augmented Red Black Tree (STL)
 Others/TernarySearch.cpp	Ternary Search
 Others/Permutation_Struct.cpp	Permutation Struct
-Others/StackSizeManipulation.cpp.cpp	Stack Size Manipulation (Hack)
+Others/StackSizeManipulation.cpp	Stack Size Manipulation (Hack)
