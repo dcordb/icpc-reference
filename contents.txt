@@ -12,6 +12,7 @@ Algebra/Gauss.cpp	Gauss's Method
 Algebra/Simpsons_Rule.cpp	Simpson's Rule
 Algebra/FFT_inv.cpp	Inverse of a Polynomial (with NTT)
 Algebra/FFT_like.cpp	FFT XOR AND OR
+Algebra/BasisZ2.cpp	Basis in Z2
 
 [DP]
 DP/CHTrick.cpp	Convex Hull Trick
