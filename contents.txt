@@ -27,6 +27,7 @@ DS/Persistent_SegTree.cpp	Persistent Segment Tree
 DS/MoAlgorithm.cpp	Mo's Algorithm
 DS/mo_tree.cpp	Mo's Algorithm On Trees
 DS/treap.cpp	Treap
+DS/HashSeq.cpp	HashSeq
 
 [Geometría]
 Geometry/ConvexHull.cpp	Convex Hull
