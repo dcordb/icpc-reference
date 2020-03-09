@@ -28,6 +28,7 @@ DS/MoAlgorithm.cpp	Mo's Algorithm
 DS/mo_tree.cpp	Mo's Algorithm On Trees
 DS/treap.cpp	Treap
 DS/HashSeq.cpp	HashSeq
+DS/MonotoneQueue.cpp	Monotone Queue
 
 [Geometría]
 Geometry/ConvexHull.cpp	Convex Hull
