@@ -6,7 +6,7 @@
 template <typename T, typename Comparator, typename RAIter>
 struct monotone_queue {
 	RAIter arr;
-	deque <int> q;
+	deque <T> q;
 	Comparator cmp;
 
 	monotone_queue(RAIter x) {
@@ -26,6 +26,7 @@ struct monotone_queue {
 			q.pop_front();
 	}
 
+	//returns position of desired element or -1 if empty
 	int get() {
 		return q.empty() ? -1 : q.front();
 	}
