@@ -58,6 +58,7 @@ Graphs/hungarian_arrays.cpp	Hungarian (Arrays)
 Graphs/MDST.cpp	Minimum Directed Spanning Tree
 Graphs/SmallToLarge.cpp	Small To Large On Trees
 Graphs/CompressedTree.cpp	Compressed Tree
+Graphs/DataUnion.cpp	Data Union (Simple Small to Large)
 
 [Strings]
 Strings/SA.cpp	Suffix Array
