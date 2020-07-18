@@ -1,11 +1,12 @@
-int64 exp(int64 a, int64 n) {
-	int64 ans = 1;
+int exp(int a, int n) {
+	int ans = 1;
+
 	while(n > 0) {
-		if(n % 2LL == 1LL)
-			ans = ans * a % MOD;
+		if(n % 2)
+			ans = 1LL * ans * a % MOD;
 			
-		a = a * a % MOD;
-		n /= 2LL;
+		a = 1LL * a * a % MOD;
+		n /= 2;
 	}
 	
 	return ans;
