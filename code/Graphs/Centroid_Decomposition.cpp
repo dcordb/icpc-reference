@@ -1,50 +1,75 @@
-//Centroid decomposition basico
-//Un centroid es un nodo q al borrarlo divide al arbol en arboles con cnt de nodos <= q la mitad del tamanno del arbol grande
+struct CentDec {
+    vector <vector <int>> g;
+    vector <int> sz, cent;
 
-const int MAX = 1e5 + 5;
-int n, cent[MAX], sz[MAX];
-vector <int> g[MAX];
+	// graph and root to start doing the decomposition
+    CentDec(const vector <vector <int>> &g, int root) : g(g) {
+        sz.assign(g.size(), 0);
+        cent.assign(g.size(), 0);
 
-void dfs2(int u, int pt = 0) {
-	sz[u] = 0;
+        cdec(root, -1);
+    }
 
-	for(int v : g[u]) {
-		if(v == pt || cent[v])
-			continue;
+    void dfs2(int u, int pt) {
+        sz[u] = 0;
 
-		dfs2(v, u);
-		sz[u] += sz[v];
-	}
+        for(int v : g[u]) {
+            if(v == pt || cent[v])
+                continue;
 
-	sz[u]++;
-}
+            dfs2(v, u);
+            sz[u] += sz[v];
+        }
 
-int dfs1(int u, int r, int pt = 0) {
-	int t = -1;
+        sz[u]++;
+    };
 
-	for(int v : g[u]) {
-		if(v == pt || cent[v]) //ojo importante siempre chequear q no vayas a un centroid
-			continue;
+    int dfs1(int u, int r, int pt) {
+        int t = -1;
 
-		if(t == -1 || sz[v] > sz[t])
-			t = v;
-	}
+        for(int v : g[u]) {
+            if(v == pt || cent[v])
+                continue;
 
-	if(t == -1 || 2 * sz[t] <= sz[r])
-		return u;
+            if(t == -1 || sz[v] > sz[t])
+                t = v;
+        }
 
-	return dfs1(t, r, u);
-}
+        if(t == -1 || 2 * sz[t] <= sz[r])
+            return u;
 
-void cdec(int u, int p = 0) { //llamar con cdec(1)
-	dfs2(u); //dfs para calcular tamanno de arboles
-	int c = dfs1(u, u); //dfs para buscar centroid en el arbol actual
+        return dfs1(t, r, u);
+    };
 
-	//hacer lo q haga falta, dfs para calcular cosas, guardar arbol de centroid, etc
+    void cdec(int u, int p) {
+        dfs2(u, -1);
+        int c = dfs1(u, u, -1);
 
-	cent[c] = 1; //marco como centroid
-	
-	for(int v : g[c])
-		if(!cent[v])
-			cdec(v, c); //seguir con la descomposicion
-}
+        solve(c);
+
+        cent[c] = 1;  // mark as centroid
+        
+        for(int v : g[c])
+            if(!cent[v])
+                cdec(v, c);
+    }
+
+    void solve(int c) {
+        /*
+			solve for a centroid here.
+			whatever you do, remember that you can't go to a node marked as a centroid.
+		*/
+    }
+};
+
+/*
+Basic Centroid Decomposition.
+A centroid is a node that its removal divides the tree in trees each having less than or equal to half of original tree's size.
+
+It works for both 0 or 1 indexed.
+
+Usage:
+	CentDec cdec(g, 0); //this starts the centroid decomposition
+
+Time Complexity: O(n log n) * O(solve)
+*/
