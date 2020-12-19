@@ -1,5 +1,5 @@
 /*
-    Euler Path or Cycle (Hierholzer’s Algorithm)
+    Euler Path or Cycle (Hierholzer's Algorithm)
     Complexity: O(n + m)
 
     Undirected graphs:
