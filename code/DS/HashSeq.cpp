@@ -57,6 +57,7 @@ struct HashSeq {
 		*/
 
 		assert(l <= r);
+        assert(l >= 0 && r < seqs[0].size());
 
 		vector <int> res(items.size(), 0);
 
