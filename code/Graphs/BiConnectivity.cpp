@@ -2,32 +2,33 @@
 BiConnectivity Algorithms:
     - finds articulation points
     - finds bridges
-    - finds biconnected components (note, a bridge is also a biconnected component and the algorithm finds them too)
+    - finds biconnected components (note, a bridge is also a biconnected
+component and the algorithm finds them too)
 
-    An articulation point is a node such that when removed disconnects the graph.
-    A bridge is an edge such that when removed disconnects the graph.
-    A biconnected component is a maximal connected component such that between any two nodes there exist at least 2 disjoint edge paths.
+    An articulation point is a node such that when removed disconnects the
+graph. A bridge is an edge such that when removed disconnects the graph. A
+biconnected component is a maximal connected component such that between any two
+nodes there exist at least 2 disjoint edge paths.
 
     Time Complexity: O(n + m)
 */
 
 struct BiConnectivity {
-    vector <vector <pair <int, int>>> g;
-    vector <int> td, low;
-    vector <bool> mk, ed, br, ap;
+    vector<vector<pair<int, int>>> g;
+    vector<int> td, low;
+    vector<bool> mk, ed, br, ap;
 
-    vector <vector <pair <int, int>>> comp;
-    stack <pair <int, int>> s;
+    vector<vector<pair<int, int>>> comp;
+    stack<pair<int, int>> s;
 
     int t = 0;
 
     // the graph is an adjacency list of pairs (node, id of edge)
-    BiConnectivity(const vector <vector <pair <int, int>>> &g) : g(g) {
+    BiConnectivity(const vector<vector<pair<int, int>>> &g) : g(g) {
         int n = g.size();
         int m = 0;
 
-        for(int i = 0; i < n; i++)
-            m += g[i].size();
+        for (int i = 0; i < n; i++) m += g[i].size();
 
         m /= 2;
 
@@ -39,50 +40,47 @@ struct BiConnectivity {
         ed.assign(m, false);
         br.assign(m, false);  // is bridge ?
 
-        for(int i = 0; i < n; i++)
-            if(low[i] == -1)
-                dfs(i);
+        for (int i = 0; i < n; i++)
+            if (low[i] == -1) dfs(i, 1);
     }
 
-    function <void(int)> dfs = [&] (int u) {
+    function<void(int, int)> dfs = [&](int u, int r) {
         td[u] = low[u] = ++t;
 
-        for(auto o : g[u]) {
+        for (auto o : g[u]) {
             int v = o.first;
             int id = o.second;
 
-            if(!mk[id]) {
+            if (!mk[id]) {
                 mk[id] = true;
                 s.push({u, v});
             }
 
-            if(low[v] == -1) {
+            if (low[v] == -1) {
                 ed[id] = true;
-                dfs(v);
+                dfs(v, 0);
 
                 low[u] = min(low[u], low[v]);
 
-                if(low[v] > td[u])
-                    br[id] = true; // found a bridge
+                if (low[v] > td[u]) br[id] = true;  // found a bridge
 
-                if((td[u] == 1 && td[v] > 2) || (td[u] != 1 && low[v] >= td[u]))
-                    ap[u] = true; // found an articulation point
+                if ((r && td[v] - td[u] > 1) || (!r && low[v] >= td[u]))
+                    ap[u] = true;  // found an articulation point
 
-                if(low[v] >= td[u]) { // found a biconnected component
+                if (low[v] >= td[u]) {  // found a biconnected component
                     comp.push_back({});
 
-                    while(1) {
+                    while (1) {
                         auto w = s.top();
                         s.pop();
                         comp.back().push_back(w);
 
-                        if(w == make_pair(u, v))
-                            break;
+                        if (w == make_pair(u, v)) break;
                     }
                 }
             }
 
-            else if(!ed[id])
+            else if (!ed[id])
                 low[u] = min(low[u], td[v]);
         }
     };
@@ -91,7 +89,7 @@ struct BiConnectivity {
 /*
 Usage:
     g is an adjacency list of pairs (node, id), for example:
-    
+
     vector <vector <pair <int, int>>> g(n);
     for(int i = 0; i < m; i++) {
         int a, b; cin >> a >> b;
