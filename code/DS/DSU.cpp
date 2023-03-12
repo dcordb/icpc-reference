@@ -1,33 +1,28 @@
-//Union Find (1-indexed)
-
 struct DSU {
-	vector <int> p, sz;
+    vector<int> p, sz;
 
-	DSU(int n) {
-		p.assign(n + 1, 0);
-		sz.assign(n + 1, 0);
+    DSU(int n) {
+        p.assign(n, 0);
+        sz.assign(n, 0);
 
-		for(int i = 1; i <= n; i++)
-			p[i] = i, sz[i] = 1;
-	}
+        for (int i = 0; i < n; i++) p[i] = i, sz[i] = 1;
+    }
 
-	int findst(int x) { return p[x] = (x == p[x]) ? x : findst(p[x]); }
+    int findst(int x) { return p[x] = (x == p[x]) ? x : findst(p[x]); }
 
-	bool joinst(int a, int b) {
-		//returns whether it could join a, b
-		
-		a = findst(a);
-		b = findst(b);
+    bool joinst(int a, int b) {
+        // returns whether it could join a, b
 
-		if(a == b)
-			return false;
+        a = findst(a);
+        b = findst(b);
 
-		if(sz[a] < sz[b])
-			swap(a, b);
+        if (a == b) return false;
 
-		sz[a] += sz[b];
-		p[b] = a;
+        if (sz[a] < sz[b]) swap(a, b);
 
-		return true;
-	}
+        sz[a] += sz[b];
+        p[b] = a;
+
+        return true;
+    }
 };

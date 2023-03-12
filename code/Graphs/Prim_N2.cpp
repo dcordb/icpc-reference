@@ -1,53 +1,45 @@
-//Prim O(N^2)
-
 #include <bits/stdc++.h>
 using namespace std;
 
-const int
-	MAX = 1e4 + 5,
-	INF = 2e9;
-int n, mst[MAX], cost[MAX];
-
-struct par {
-	int x, y;
-} pt[10005];
+const int inf = numeric_limits<int>::max();
 
 int main() {
-	scanf("%d", &n);
+    ios_base::sync_with_stdio(0), cin.tie(0);
 
-	for(int i = 1; i <= n; i++)
-		scanf("%d%d", &pt[i].x, &pt[i].y);
+    int n, m;
+    cin >> n >> m;
 
-	//cost[1] = 0, nodo inicio de prim
-	for(int i = 2; i <= n; i++)
-		cost[i] = INF;
+    vector<vector<pair<int, int>>> g(n);
+    for (int i = 0; i < m; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        a--, b--;
+        g[a].push_back({b, c});
+        g[b].push_back({a, c});
+    }
 
-	long long ans = 0;
-	for(int i = 1; i <= n; i++) {
-		int best = INF;
-		int opt = -1;
+    vector<pair<int, int>> d(n, {inf, -1}), ans;
+    vector<int> seen(n);
+    int mst = 0;
+    d[0] = {0, -1};
 
-		for(int j = 1; j <= n; j++) {
-			if(!mst[j] && cost[j] < best) {
-				best = cost[j];
-				opt = j;
-			}
-		}
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int k = 0; k < n; k++)
+            if (!seen[k] && (u == -1 || d[k] < d[u])) u = k;
 
-		mst[opt] = 1; //marcador de nodos q estan en el mst
-		ans += 2 * best;
+        if (d[u].first == inf) break;  // no mst here
 
-		for(int j = 1; j <= n; j++) { //actualiza costo del resto de los nodos
-			if(mst[j])
-				continue;
+        mst += d[u].first;
+        seen[u] = 1;
 
-			int d = abs(pt[opt].x - pt[j].x) + abs(pt[opt].y - pt[j].y); //costo de arista
+        if (d[u].second != -1) ans.push_back({d[u].second, u});
 
-			if(d < cost[j])
-				cost[j] = d;
-		}
-	}
+        for (auto [v, w] : g[u])
+            if (w < d[v].first) d[v] = {w, u};
+    }
 
-	printf("%lld\n", ans);
-	return 0;
+    cout << mst << "\n";
+    for (auto [a, b] : ans) cout << a + 1 << " " << b + 1 << "\n";
+    return 0;
 }
